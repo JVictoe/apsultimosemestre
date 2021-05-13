@@ -14,13 +14,6 @@
 
       <script language="Javascript">
 
-        var inputEmail = document.querySelector("#name");
-        var inputAssunto = document.querySelector("#assunto");
-        var inputMensagem = document.querySelector("#mensagem");
-        var textoEmail = inputEmail.value;
-        var textoAssunto = inputAssunto.value;
-        var textoMensagem = inputMensagem.value;
-
         function validacaoEmail(field) 
         {
           usuario = field.value.substring(0, field.value.indexOf("@"));
@@ -42,11 +35,6 @@
             document.getElementById("msgemail").innerHTML="<font color='red'>Email inválido </font>";
             alert("E-mail invalido");
           }
-        }
-
-        function sendMail()
-        {
-          "mailto:" + textoEmail + "?subject=" + textoAssunto + "&body=" + textoMensagem;
         }
       </script>
       
@@ -103,7 +91,7 @@
             <div class="form-group"> 
               <table>
                   <div>
-                    E-mail:
+                    <label for="exampleFormControlTextarea1">Email</label>
                     <input type="text" name="email" class="form-control" onblur="validacaoEmail(f1.email)" id="email" placeholder="name@example.com" maxlength="60" size='65'>
                   </div>
                   <div>
@@ -118,7 +106,7 @@
                     <input class="form-control" id="mensagem" name="mensagem" rows="3" placeholder="Olá, gostaria de sugerir essa melhoria..."></input>
                   </div>
                   <div>
-            <button onclick="sendMail()" class="btn btn-primary" >
+            <button onclick="location.href='mailto:'+email.value+'?subject='+assunto.value+'&body='+mensagem.value" class="btn btn-primary" >
               Enviar
             </button>
             
